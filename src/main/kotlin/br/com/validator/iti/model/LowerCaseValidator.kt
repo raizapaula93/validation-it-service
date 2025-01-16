@@ -1,7 +1,12 @@
 package br.com.validator.iti.model
 
-class LowerCaseValidator: Validator {
+import br.com.validator.iti.exception.LowerCaseValidationException
+
+class LowerCaseValidator : Validator {
     override fun validate(input: String): Boolean {
-        return input.any {it.isLowerCase()}
+        if (!input.any { it.isLowerCase() }) {
+            throw LowerCaseValidationException("Input must contain at least one lowercase letter")
+        }
+        return true
     }
 }

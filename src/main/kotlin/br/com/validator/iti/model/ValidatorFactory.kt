@@ -11,7 +11,8 @@ class ValidatorFactory {
             LowerCaseValidator(),
             UpperCaseValidator(),
             SpecialCharValidator(),
-            RepeatCaracterValidator()
+            RepeatCaracterValidator(),
+            WhiteSpaceValidator()
         )
     }
 }

@@ -1,7 +1,12 @@
 package br.com.validator.iti.model
 
-class LengthValidator:Validator {
+import br.com.validator.iti.exception.LengthValidationException
+
+class LengthValidator : Validator {
     override fun validate(input: String): Boolean {
-        return input.length in 9..20
+        if (input.length < 9) {
+            throw LengthValidationException("Input length must be deve ser maior ou igual a 9 caracteres")
+        }
+        return true
     }
 }

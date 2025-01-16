@@ -9,6 +9,12 @@ class ValidationStringUseCase (
 ) {
     fun validate(input:String): Boolean{
         val validators = validatorFactory.getStringValidators()
-        return validators.all { it.validate(input) }
+        try {
+            validators.forEach { it.validate(input) }
+        } catch (e: Exception) {
+            println("Validation failed: ${e.message}")
+            return false
+        }
+        return true
     }
 }
