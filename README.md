@@ -1,6 +1,4 @@
 
-Claro! Aqui está o texto formatado de forma coerente e coesa para o seu README.md no GitHub:
-
 ---
 
 # Validation IT Service
