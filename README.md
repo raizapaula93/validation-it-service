@@ -302,9 +302,37 @@ Verificação de Cobertura de Testes
         Abra o arquivo index.html em um navegador da web.
         Esse arquivo mostrará o relatório de cobertura de testes de forma visual e detalhada.
 
-Dicas Adicionais
+Próximos Passos
 
-    Certifique-se de que o JDK correto está configurado no IntelliJ IDEA indo em File > Project Structure > Project SDK.
-    Se você encontrar problemas de compilação, tente executar ./mvnw clean install no terminal dentro do diretório do projeto para construir o projeto e baixar as dependências necessárias.
+Ainda há algumas tarefas pendentes para completar o projeto validation-it-service. Aqui estão os principais pontos que precisam ser abordados:
+Documentação OpenAPI
+
+    Implementar a documentação da API utilizando o OpenAPI (anteriormente conhecido como Swagger).
+    Garantir que todos os endpoints estejam documentados com exemplos de requisições e respostas.
+    Configurar o Swagger UI para facilitar a visualização e interação com a documentação da API.
+
+Observabilidade com New Relic
+
+    Integrar o New Relic ao projeto para monitoramento e observabilidade.
+    Configurar métricas de desempenho e logs para rastrear a saúde e o desempenho do serviço.
+    Definir alertas e painéis de monitoramento para acompanhamento em tempo real.
+
+Integração com um Front-End
+
+    Desenvolver ou integrar um front-end que consuma os serviços do validation-it-service.
+    Garantir que a comunicação entre o front-end e o back-end esteja funcionando corretamente.
+    Realizar testes de integração para validar a funcionalidade completa do sistema.
+
+Pipeline Automatizada com GitHub Actions
+
+    Configurar uma pipeline CI/CD utilizando GitHub Actions.
+    Definir workflows para build, testes e deploy automatizados.
+    Garantir que a pipeline esteja integrada com o repositório e que os testes sejam executados em cada pull request.
+
+Agradecimentos
+
+Gostaria de expressar minha profunda gratidão pela oportunidade de trabalhar neste projeto. Independentemente do resultado, os estudos e aperfeiçoamentos continuarão. Esta experiência tem sido incrivelmente valiosa para o meu crescimento profissional e pessoal. Agradeço pela oportunidade e confiança ao longo deste processo.
+
+Gratidão!
 
 
