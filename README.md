@@ -3,7 +3,7 @@
 
 # Validation IT Service
 
-### Descrição
+## Descrição
 
 Este documento fornece detalhes sobre como utilizar a API de validação de strings hospedada em uma instância EC2. A API permite que os usuários enviem strings para validação através de requisições HTTP.
 
@@ -213,7 +213,6 @@ Para verificar os logs do contêiner, execute:
 ```sh
 docker logs validator-iti-service
 ```
-
 
 ## Instruções para Configuração do Projeto
 
