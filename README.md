@@ -24,7 +24,61 @@ Dessa forma, mantenho a lógica de validação organizada e extensível, facilit
 
 ## Arquitetura
 
-(Descreva a arquitetura do projeto, como ele está organizado, quais são os principais componentes, camadas, etc.)
+### Estrutura de Diretórios
+
+```plaintext
+src/
+├── main/
+│   ├── kotlin/
+│   │   ├── br/
+│   │   │   ├── com/
+│   │   │   │   ├── validator/
+│   │   │   │   │   ├── iti/
+│   │   │   │   │   │   ├── controller/
+│   │   │   │   │   │   │   ├── ControllerExceptionHandler.kt
+│   │   │   │   │   │   │   ├── ErrorDetails.kt
+│   │   │   │   │   │   │   ├── ValidationController.kt
+│   │   │   │   │   │   ├── exception/
+│   │   │   │   │   │   │   ├── ValidatorException.kt
+│   │   │   │   │   │   ├── model/
+│   │   │   │   │   │   │   ├── DigitValidator.kt
+│   │   │   │   │   │   │   ├── LengthValidator.kt
+│   │   │   │   │   │   │   ├── LowerCaseValidator.kt
+│   │   │   │   │   │   │   ├── RepeatCaracterValidator.kt
+│   │   │   │   │   │   │   ├── SpecialCharValidator.kt
+│   │   │   │   │   │   │   ├── UpperCaseValidator.kt
+│   │   │   │   │   │   │   ├── Validator.kt
+│   │   │   │   │   │   │   ├── ValidatorFactory.kt
+│   │   │   │   │   │   │   ├── WhiteSpaceValidator.kt
+│   │   │   │   │   │   ├── usecase/
+│   │   │   │   │   │   │   ├── ValidationStringUseCase.kt
+│   │   │   │   │   │   ├── ValidatorItiServiceApplication.kt
+│   ├── resources/
+│   │   ├── application.properties
+├── test/
+│   ├── kotlin/
+│   │   ├── br/
+│   │   │   ├── com/
+│   │   │   │   ├── validator/
+│   │   │   │   │   ├── iti/
+│   │   │   │   │   │   ├── controller/
+│   │   │   │   │   │   │   ├── ControllerExceptionHandlerTest.kt
+│   │   │   │   │   │   │   ├── ValidationControllerTest.kt
+│   │   │   │   │   │   ├── model/
+│   │   │   │   │   │   │   ├── ValidatorFactoryTest.kt
+│   │   │   │   │   │   ├── usecase/
+│   │   │   │   │   │   │   ├── ValidationStringUseCaseTest.kt
+## Benefícios da Arquitetura em Camadas
+
+Escolher a Arquitetura em Camadas traz vários benefícios:
+
+- **Manutenibilidade**: A clara separação de responsabilidades facilita a manutenção e evolução do sistema.
+- **Testabilidade**: Componentes desacoplados são mais fáceis de testar individualmente. Por isso, organizei meus testes de forma que cada camada tenha seus próprios testes, como `ControllerExceptionHandlerTest.kt` para a camada de apresentação e `ValidationStringUseCaseTest.kt` para a camada de aplicação.
+- **Reusabilidade**: Módulos bem definidos podem ser reutilizados em diferentes partes da aplicação ou em projetos futuros.
+- **Flexibilidade**: Facilita a adição de novas funcionalidades sem impactar outras partes do sistema.
+
+Em resumo, a Arquitetura em Camadas me permite criar uma aplicação bem estruturada, fácil de manter e evoluir, ao mesmo tempo que incorpora princípios da Arquitetura Modular, garantindo que cada componente possa ser desenvolvido, testado e mantido de forma independente.
+
 
 ## Como Executar o Docker File
 
