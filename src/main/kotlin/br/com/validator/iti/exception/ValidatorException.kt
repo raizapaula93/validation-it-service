@@ -1,9 +1,12 @@
 package br.com.validator.iti.exception
 
-class LengthValidationException(message: String) : Exception(message)
-class DigitValidationException(message: String) : Exception(message)
-class LowerCaseValidationException(message: String) : Exception(message)
-class UpperCaseValidationException(message: String) : Exception(message)
-class SpecialCharValidationException(message: String) : Exception(message)
-class RepeatedCharValidationException(message: String) : Exception(message)
-class WhiteSpaceValidationException(message: String) : Exception(message)
+abstract class ValidationBadRequestException(message: String) : RuntimeException(message)
+
+class LengthValidationException(message: String) : ValidationBadRequestException(message)
+class DigitValidationException(message: String) : ValidationBadRequestException(message)
+class LowerCaseValidationException(message: String) : ValidationBadRequestException(message)
+class UpperCaseValidationException(message: String) : ValidationBadRequestException(message)
+class SpecialCharValidationException(message: String) : ValidationBadRequestException(message)
+class RepeatedCharValidationException(message: String) : ValidationBadRequestException(message)
+class WhiteSpaceValidationException(message: String) : ValidationBadRequestException(message)
+
