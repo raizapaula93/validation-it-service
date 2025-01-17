@@ -227,6 +227,56 @@ A API retornará uma resposta indicando o status da validação da string enviad
     }
     ```
 
+Este guia fornece instruções passo a passo para baixar e executar o projeto validation-it-service utilizando o IntelliJ IDEA.
+Pré-requisitos
+
+    Git
+    JDK (Java Development Kit) versão 17
+    IntelliJ IDEA (Community ou Ultimate)
+    Kotlin versão 2.1.0
+
+Baixar o Projeto
+
+    Abra o terminal.
+
+    Clone o repositório do projeto utilizando o comando Git:
+
+    git clone -b develop https://github.com/raizapaula93/validation-it-service.git
+
+    Entre no diretório do projeto:
+
+    cd validation-it-service
+
+Abrir e Configurar o Projeto no IntelliJ IDEA
+
+    Abra o IntelliJ IDEA.
+    Selecione File > Open... e navegue até o diretório do projeto que você acabou de clonar.
+    Escolha o diretório do projeto e clique em OK.
+    O IntelliJ IDEA irá abrir o projeto e começar a importar as configurações baseadas no arquivo pom.xml.
+    Aguarde até que o processo de importação e indexação esteja completo.
+
+Configuração do JDK e Kotlin
+
+    Certifique-se de que o JDK 17 está configurado no IntelliJ IDEA:
+        Vá em File > Project Structure > Project SDK.
+        Se o JDK 17 não estiver listado, clique em Add SDK > JDK e navegue até o diretório onde o JDK 17 está instalado.
+        Selecione o JDK 17 e clique em OK.
+
+    Certifique-se de que o Kotlin 2.1.0 está configurado:
+        Vá em File > Settings > Plugins.
+        Pesquise por "Kotlin" e certifique-se de que a versão 2.1.0 está instalada. Se não estiver, instale a versão correta.
+
+Executar o Projeto
+
+    Após a configuração do projeto, localize a classe principal ValidatorItiServiceApplication que contém o método main. Esta classe geralmente está marcada com o ícone do Spring Boot (uma pena verde).
+    Clique com o botão direito do mouse sobre a classe ValidatorItiServiceApplication e selecione Run 'ValidatorItiServiceApplicationKt'.
+    O IntelliJ IDEA irá compilar e executar o projeto.
+    Verifique se o serviço Spring Boot está rodando acessando o endereço http://localhost:8080 no seu navegador ou utilizando uma ferramenta como Postman para realizar requisições HTTP.
+
+Dicas Adicionais
+
+    Certifique-se de que o JDK correto está configurado no IntelliJ IDEA indo em File > Project Structure > Project SDK.
+    Se você encontrar problemas de compilação, tente executar ./mvnw clean install no terminal dentro do diretório do projeto para construir o projeto e baixar as dependências necessárias.
 
 
 
