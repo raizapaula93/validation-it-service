@@ -233,81 +233,78 @@ Entendido! Vou remover a menção ao banco de dados e manter as instruções foc
 
 ---
 
-# Instruções para Configuração do Projeto
+Instruções para Configuração do Projeto
 
-Este guia fornece instruções passo a passo para baixar e executar o projeto `validation-it-service` utilizando o IntelliJ IDEA.
+Este guia fornece instruções passo a passo para baixar e executar o projeto validation-it-service utilizando o IntelliJ IDEA.
+Pré-requisitos
 
-## Pré-requisitos
+    Git
+    JDK (Java Development Kit) versão 17
+    IntelliJ IDEA (Community ou Ultimate)
+    Kotlin versão 2.1.0
 
-- Git
-- JDK (Java Development Kit) versão 17
-- IntelliJ IDEA (Community ou Ultimate)
-- Kotlin versão 2.1.0
+Baixar o Projeto
 
-## Baixar o Projeto
+    Abra o terminal.
 
-1. Abra o terminal.
-2. Clone o repositório do projeto utilizando o comando Git:
+    Clone o repositório do projeto utilizando o comando Git:
 
-    ```
     git clone -b develop https://github.com/raizapaula93/validation-it-service.git
-    ```
 
-3. Entre no diretório do projeto:
+    Entre no diretório do projeto:
 
-    ```
     cd validation-it-service
-    ```
 
-## Abrir e Configurar o Projeto no IntelliJ IDEA
+Abrir e Configurar o Projeto no IntelliJ IDEA
 
-1. Abra o IntelliJ IDEA.
-2. Selecione `File > Open...` e navegue até o diretório do projeto que você acabou de clonar.
-3. Escolha o diretório do projeto e clique em `OK`.
-4. O IntelliJ IDEA irá abrir o projeto e começar a importar as configurações baseadas no arquivo `pom.xml`.
-5. Aguarde até que o processo de importação e indexação esteja completo.
+    Abra o IntelliJ IDEA.
+    Selecione File > Open... e navegue até o diretório do projeto que você acabou de clonar.
+    Escolha o diretório do projeto e clique em OK.
+    O IntelliJ IDEA irá abrir o projeto e começar a importar as configurações baseadas no arquivo pom.xml.
+    Aguarde até que o processo de importação e indexação esteja completo.
 
-## Configuração do JDK e Kotlin
+Configuração do JDK e Kotlin
 
-1. Certifique-se de que o JDK 17 está configurado no IntelliJ IDEA:
-    - Vá em `File > Project Structure > Project SDK`.
-    - Se o JDK 17 não estiver listado, clique em `Add SDK > JDK` e navegue até o diretório onde o JDK 17 está instalado.
-    - Selecione o JDK 17 e clique em `OK`.
+    Certifique-se de que o JDK 17 está configurado no IntelliJ IDEA:
+        Vá em File > Project Structure > Project SDK.
+        Se o JDK 17 não estiver listado, clique em Add SDK > JDK e navegue até o diretório onde o JDK 17 está instalado.
+        Selecione o JDK 17 e clique em OK.
 
-2. Certifique-se de que o Kotlin 2.1.0 está configurado:
-    - Vá em `File > Settings > Plugins`.
-    - Pesquise por "Kotlin" e certifique-se de que a versão 2.1.0 está instalada. Se não estiver, instale a versão correta.
+    Certifique-se de que o Kotlin 2.1.0 está configurado:
+        Vá em File > Settings > Plugins.
+        Pesquise por "Kotlin" e certifique-se de que a versão 2.1.0 está instalada. Se não estiver, instale a versão correta.
 
-## Executar o Projeto
+Executar o Projeto
 
-1. Após a configuração do projeto, localize a classe principal `ValidatorItiServiceApplication` que contém o método `main`. Esta classe geralmente está marcada com o ícone do Spring Boot (uma pena verde).
-2. Clique com o botão direito do mouse sobre a classe `ValidatorItiServiceApplication` e selecione `Run 'ValidatorItiServiceApplicationKt'`.
-3. O IntelliJ IDEA irá compilar e executar o projeto.
-4. Verifique se o serviço Spring Boot está rodando acessando o endereço `http://localhost:8080` no seu navegador ou utilizando uma ferramenta como Postman para realizar requisições HTTP.
+    Após a configuração do projeto, localize a classe principal ValidatorItiServiceApplication que contém o método main. Esta classe geralmente está marcada com o ícone do Spring Boot (uma pena verde).
+    Clique com o botão direito do mouse sobre a classe ValidatorItiServiceApplication e selecione Run 'ValidatorItiServiceApplicationKt'.
+    O IntelliJ IDEA irá compilar e executar o projeto.
+    Verifique se o serviço Spring Boot está rodando acessando o endereço http://localhost:8080 no seu navegador ou utilizando uma ferramenta como Postman para realizar requisições HTTP.
 
-## Verificação de Cobertura de Testes
+Verificação de Cobertura de Testes
 
-1. O projeto utiliza a biblioteca JaCoCo para verificação de cobertura de testes.
-2. A configuração do JaCoCo está definida para uma cobertura mínima de 80%.
-3. Para executar os testes e verificar a cobertura, utilize os seguintes comandos no terminal dentro do diretório do projeto:
-    - Para limpar e executar os testes:
+    O projeto utiliza a biblioteca JaCoCo para verificação de cobertura de testes.
 
-        ```
+    A configuração do JaCoCo está definida para uma cobertura mínima de 80%.
+
+    Para executar os testes e verificar a cobertura, utilize os seguintes comandos no terminal dentro do diretório do projeto:
+
+        Para limpar e executar os testes:
+
         mvn clean test
-        ```
 
-    - Para limpar, executar os testes e gerar o relatório de verificação de cobertura:
+        Para limpar, executar os testes e gerar o relatório de verificação de cobertura:
 
-        ```
         mvn clean verify
-        ```
 
-## Dicas Adicionais
+    Após a execução dos comandos, você pode visualizar o relatório de cobertura de testes de forma visual:
+        Navegue até a pasta target/site no diretório do projeto.
+        Abra o arquivo index.html em um navegador da web.
+        Esse arquivo mostrará o relatório de cobertura de testes de forma visual e detalhada.
 
-- Certifique-se de que o JDK correto está configurado no IntelliJ IDEA indo em `File > Project Structure > Project SDK`.
-- Se você encontrar problemas de compilação, tente executar `./mvnw clean install` no terminal dentro do diretório do projeto para construir o projeto e baixar as dependências necessárias.
+Dicas Adicionais
 
----
+    Certifique-se de que o JDK correto está configurado no IntelliJ IDEA indo em File > Project Structure > Project SDK.
+    Se você encontrar problemas de compilação, tente executar ./mvnw clean install no terminal dentro do diretório do projeto para construir o projeto e baixar as dependências necessárias.
 
-Este guia é um ponto de partida básico. Dependendo do projeto, podem ser necessárias configurações adicionais, como variáveis de ambiente, entre outras.
 
