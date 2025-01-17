@@ -85,7 +85,4 @@ Em resumo, a Arquitetura em Camadas me permite criar uma aplicação bem estrutu
 Para construir e executar a imagem Docker do projeto, siga os passos abaixo:
 
 1. Certifique-se de que o Docker está instalado e em execução.
-2. Navegue até o diretório raiz do projeto onde o Dockerfile está localizado.
-3. Construa a imagem Docker:
-   ```sh
-   docker build -t nome-da-imagem .
+
