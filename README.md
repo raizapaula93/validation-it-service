@@ -3,6 +3,67 @@
 
 # Validation IT Service
 
+### Descrição
+
+Este documento fornece detalhes sobre como utilizar a API de validação de strings hospedada em uma instância EC2. A API permite que os usuários enviem strings para validação através de requisições HTTP.
+
+### Endpoint
+
+- **URL Base:** `http://98.84.181.60:80`
+- **Rota:** `/v1/validator-it/string`
+
+### Método HTTP
+
+- **POST**
+
+### Cabeçalhos (Headers)
+
+- **Content-Type:** `text/plain`
+
+### Corpo da Requisição (Request Body)
+
+O corpo da requisição deve conter a string que será validada. A string deve ser enviada como texto simples (plain text).
+
+### Exemplo de Requisição `curl`
+
+Você pode utilizar o comando `curl` para fazer uma requisição à API. Abaixo está um exemplo de como fazer isso:
+
+```sh
+curl --location 'http://98.84.181.60:80/v1/validator-it/string' \
+--header 'Content-Type: text/plain' \
+--data 'AbT!9f2ko'
+```
+
+### Descrição dos Parâmetros
+
+- **URL Base:** O endereço IP público da instância EC2 onde a API está hospedada.
+- **Rota:** O caminho específico para o serviço de validação de strings.
+- **Content-Type:** Define o tipo de conteúdo do corpo da requisição como texto simples.
+- **Data:** A string que será validada pelo serviço.
+
+### Respostas da API
+
+A API retornará uma resposta indicando o status da validação da string enviada. A estrutura da resposta depende do resultado da validação:
+
+- **Validação bem-sucedida:** A resposta será um valor booleano `true`.
+- **Validação falhou:** A resposta será um objeto JSON contendo um código de status, uma mensagem de erro e um valor booleano `false`.
+
+### Exemplos de Respostas
+
+- **Validação bem-sucedida:**
+    ```json
+    true
+    ```
+
+- **Validação falhou:**
+    ```json
+    {
+        "statusCode": 400,
+        "message": "A senha não deve conter elementos repetidos",
+        "status": false
+    }
+    ```
+
 ## Design Patterns Escolhidos
 
 ### Padrão Factory
@@ -153,76 +214,6 @@ Para verificar os logs do contêiner, execute:
 docker logs validator-iti-service
 ```
 
-## Contribuições
-
-Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e pull requests.
-
-## Licença
-
-Este projeto está licenciado sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-
-## Documentação Técnica para Validação de Strings
-
-### Descrição
-
-Este documento fornece detalhes sobre como utilizar a API de validação de strings hospedada em uma instância EC2. A API permite que os usuários enviem strings para validação através de requisições HTTP.
-
-### Endpoint
-
-- **URL Base:** `http://98.84.181.60:80`
-- **Rota:** `/v1/validator-it/string`
-
-### Método HTTP
-
-- **POST**
-
-### Cabeçalhos (Headers)
-
-- **Content-Type:** `text/plain`
-
-### Corpo da Requisição (Request Body)
-
-O corpo da requisição deve conter a string que será validada. A string deve ser enviada como texto simples (plain text).
-
-### Exemplo de Requisição `curl`
-
-Você pode utilizar o comando `curl` para fazer uma requisição à API. Abaixo está um exemplo de como fazer isso:
-
-```sh
-curl --location 'http://98.84.181.60:80/v1/validator-it/string' \
---header 'Content-Type: text/plain' \
---data 'AbT!9f2ko'
-```
-
-### Descrição dos Parâmetros
-
-- **URL Base:** O endereço IP público da instância EC2 onde a API está hospedada.
-- **Rota:** O caminho específico para o serviço de validação de strings.
-- **Content-Type:** Define o tipo de conteúdo do corpo da requisição como texto simples.
-- **Data:** A string que será validada pelo serviço.
-
-### Respostas da API
-
-A API retornará uma resposta indicando o status da validação da string enviada. A estrutura da resposta depende do resultado da validação:
-
-- **Validação bem-sucedida:** A resposta será um valor booleano `true`.
-- **Validação falhou:** A resposta será um objeto JSON contendo um código de status, uma mensagem de erro e um valor booleano `false`.
-
-### Exemplos de Respostas
-
-- **Validação bem-sucedida:**
-    ```json
-    true
-    ```
-
-- **Validação falhou:**
-    ```json
-    {
-        "statusCode": 400,
-        "message": "A senha não deve conter elementos repetidos",
-        "status": false
-    }
-    ```
 
 ## Instruções para Configuração do Projeto
 
@@ -327,6 +318,14 @@ Ainda há algumas tarefas pendentes para completar o projeto validation-it-servi
 - Configurar uma pipeline CI/CD utilizando GitHub Actions.
 - Definir workflows para build, testes e deploy automatizados.
 - Garantir que a pipeline esteja integrada com o repositório e que os testes sejam executados em cada pull request.
+
+## Contribuições
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e pull requests.
+
+## Licença
+
+Este projeto está licenciado sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ## Agradecimentos
 
