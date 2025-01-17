@@ -68,6 +68,8 @@ src/
 │   │   │   │   │   │   │   ├── ValidatorFactoryTest.kt
 │   │   │   │   │   │   ├── usecase/
 │   │   │   │   │   │   │   ├── ValidationStringUseCaseTest.kt
+
+
 ## Benefícios da Arquitetura em Camadas
 
 Escolher a Arquitetura em Camadas traz vários benefícios:
@@ -85,4 +87,146 @@ Em resumo, a Arquitetura em Camadas me permite criar uma aplicação bem estrutu
 Para construir e executar a imagem Docker do projeto, siga os passos abaixo:
 
 1. Certifique-se de que o Docker está instalado e em execução.
+
+Claro! Aqui está um exemplo de documentação escrita em Markdown para que as pessoas possam baixar e executar seu projeto Docker:
+
+```markdown
+# Validator ITI Service
+
+Este repositório contém o serviço Validator ITI, que pode ser executado usando Docker.
+
+## Pré-requisitos
+
+- Docker instalado na máquina local. Você pode seguir as instruções de instalação no site oficial do Docker: [Docker Install](https://docs.docker.com/get-docker/)
+
+## Como baixar e executar o serviço
+
+### 1. Baixar a imagem do Docker
+
+Para baixar a imagem do Docker, execute o seguinte comando:
+
+```sh
+docker pull raizapaula93/validator-iti-service
+```
+
+### 2. Executar o contêiner
+
+Após baixar a imagem, você pode executar o contêiner com o seguinte comando:
+
+```sh
+docker run -d -p 8080:8080 --name validator-iti-service raizapaula93/validator-iti-service
+```
+
+Este comando faz o seguinte:
+
+- `-d`: Executa o contêiner em segundo plano (modo "detached").
+- `-p 8080:8080`: Mapeia a porta 8080 do host para a porta 8080 do contêiner.
+- `--name validator-iti-service`: Dá um nome ao contêiner para facilitar a referência.
+- `raizapaula93/validator-iti-service`: Nome da imagem Docker a ser executada.
+
+### 3. Acessar o serviço
+
+Com o contêiner em execução, o serviço estará disponível em `http://localhost:8080`.
+
+## Comandos úteis
+
+### Parar o contêiner
+
+Para parar o contêiner, execute:
+
+```sh
+docker stop validator-iti-service
+```
+
+### Reiniciar o contêiner
+
+Para reiniciar o contêiner, execute:
+
+```sh
+docker start validator-iti-service
+```
+
+### Remover o contêiner
+
+Para remover o contêiner, execute:
+
+```sh
+docker rm validator-iti-service
+```
+
+### Verificar logs do contêiner
+
+Para verificar os logs do contêiner, execute:
+
+```sh
+docker logs validator-iti-service
+```
+
+## Contribuições
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e pull requests.
+
+## Licença
+
+Este projeto está licenciado sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+```
+
+
+### Documentação Técnica para Validação de Strings
+
+#### Descrição
+Este documento fornece detalhes sobre como utilizar a API de validação de strings hospedada em uma instância EC2. A API permite que os usuários enviem strings para validação através de requisições HTTP.
+
+#### Endpoint
+- **URL Base:** `http://98.84.181.60:80`
+- **Rota:** `/v1/validator-it/string`
+
+#### Método HTTP
+- **POST**
+
+#### Cabeçalhos (Headers)
+- **Content-Type:** `text/plain`
+
+#### Corpo da Requisição (Request Body)
+O corpo da requisição deve conter a string que será validada. A string deve ser enviada como texto simples (plain text).
+
+#### Exemplo de Requisição `curl`
+Você pode utilizar o comando `curl` para fazer uma requisição à API. Abaixo está um exemplo de como fazer isso:
+
+```sh
+curl --location 'http://98.84.181.60:80/v1/validator-it/string' \
+--header 'Content-Type: text/plain' \
+--data 'AbT!9f2ko'
+```
+
+#### Descrição dos Parâmetros
+- **URL Base:** O endereço IP público da instância EC2 onde a API está hospedada.
+- **Rota:** O caminho específico para o serviço de validação de strings.
+- **Content-Type:** Define o tipo de conteúdo do corpo da requisição como texto simples.
+- **Data:** A string que será validada pelo serviço.
+
+#### Respostas da API
+A API retornará uma resposta indicando o status da validação da string enviada. A estrutura da resposta depende do resultado da validação:
+
+- **Validação bem-sucedida:** A resposta será um valor booleano `true`.
+- **Validação falhou:** A resposta será um objeto JSON contendo um código de status, uma mensagem de erro e um valor booleano `false`.
+
+#### Exemplos de Respostas
+
+- **Validação bem-sucedida:**
+    ```json
+    true
+    ```
+
+- **Validação falhou:**
+    ```json
+    {
+        "statusCode": 400,
+        "message": "A senha não deve conter elementos repetidos",
+        "status": false
+    }
+    ```
+
+
+
 
