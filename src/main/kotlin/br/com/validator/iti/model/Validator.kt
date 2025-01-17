@@ -1,5 +1,5 @@
 package br.com.validator.iti.model
 
 interface Validator {
-    fun validate(input:String): Boolean
+    fun validate(input: String): Boolean
 }

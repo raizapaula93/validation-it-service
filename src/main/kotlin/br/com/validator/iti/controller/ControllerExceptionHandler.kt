@@ -8,12 +8,15 @@ import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.context.request.WebRequest
 
 @ControllerAdvice
-class GlobalExceptionHandler {
+class ControllerExceptionHandler {
     @ExceptionHandler(ValidationBadRequestException::class)
-    fun handleValidationExceptions(ex: ValidationBadRequestException, request: WebRequest): ResponseEntity<ErrorDetails> {
+    fun handleValidationExceptions(
+        ex: ValidationBadRequestException,
+        request: WebRequest
+    ): ResponseEntity<ErrorDetails> {
         val errorDetails = ErrorDetails(
             statusCode = HttpStatus.BAD_REQUEST.value(),
-            message = ex.message ?: "Validation error",
+            message = ex.message ?: "Erro na validação da senha!",
             status = false
         )
         return ResponseEntity(errorDetails, HttpStatus.BAD_REQUEST)
@@ -23,7 +26,7 @@ class GlobalExceptionHandler {
     fun handleGlobalException(ex: Exception, request: WebRequest): ResponseEntity<ErrorDetails> {
         val errorDetails = ErrorDetails(
             statusCode = HttpStatus.INTERNAL_SERVER_ERROR.value(),
-            message = ex.message ?: "Internal server error",
+            message = ex.message ?: "Erro inesperado!",
             status = false
         )
         return ResponseEntity(errorDetails, HttpStatus.INTERNAL_SERVER_ERROR)

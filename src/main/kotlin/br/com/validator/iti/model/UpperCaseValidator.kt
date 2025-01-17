@@ -5,7 +5,7 @@ import br.com.validator.iti.exception.UpperCaseValidationException
 class UpperCaseValidator : Validator {
     override fun validate(input: String): Boolean {
         if (!input.any { it.isUpperCase() }) {
-            throw UpperCaseValidationException("Input must contain at least one uppercase letter")
+            throw UpperCaseValidationException("A senha deve conter pelo menos uma letra maiúscula")
         }
         return true
     }
